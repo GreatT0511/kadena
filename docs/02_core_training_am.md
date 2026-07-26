@@ -56,7 +56,7 @@ Googleフォーム「今日の振り返り」（匿名番号・理解度1〜5・
 ```
 
 - 入口のフォーム設計(90秒で書ける5問・匿名番号・「今日の学び方」チェックボックス付き)は [08_reflection_form_design.md](08_reflection_form_design.md) — **まずフォームを1枚見せて「毎日続く設計」を確認してから**データへ
-- 架空データ: [data/dummy_reflections_shakai.csv](data/dummy_reflections_shakai.csv)（中2社会・歴史「江戸の政治と改革〜開国」、2026年度1学期4/10〜7/22の20授業日×30人=600回答）をスプレッドシートにインポート。仕込みパターンの講師用ネタバレ表も[08](08_reflection_form_design.md)に
+- 架空データ: [共有スプレッドシート](https://docs.google.com/spreadsheets/d/1RbL2Rcy_2XBmCIy5Fq1jCFP2oNiWuO7minfNlCC0Kuo/edit?usp=sharing)（中2社会・歴史「江戸の政治と改革〜開国」、2026年度1学期4/10〜7/22の20授業日×30人=600回答）。参加者は**「ファイル」→「コピーを作成」**で自分のドライブに保存して使う。仕込みパターンの講師用ネタバレ表は[08](08_reflection_form_design.md)（CSV原本は[data/](data/dummy_reflections_shakai.csv)）
 - **自動化に載せる分析プロンプト**（Workspace Studioの指示欄にそのまま貼る。ハンズオンではまず6/17の1日分を範囲指定して手動で試す）:
 
 ```

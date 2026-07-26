@@ -23,7 +23,7 @@
 
 ---
 
-## 架空データ: [data/dummy_reflections_shakai.csv](data/dummy_reflections_shakai.csv)
+## 架空データ: [共有スプレッドシート](https://docs.google.com/spreadsheets/d/1RbL2Rcy_2XBmCIy5Fq1jCFP2oNiWuO7minfNlCC0Kuo/edit?usp=sharing)（配布はこのリンク一本。CSV原本: [data/dummy_reflections_shakai.csv](data/dummy_reflections_shakai.csv)）
 
 中学2年・社会(歴史的分野)「江戸幕府の政治と改革〜開国」。**2026年度1学期・20授業日(2026/4/10〜7/22)×30人=600回答**。
 
