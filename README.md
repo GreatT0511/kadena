@@ -10,6 +10,7 @@
 | 13:30〜16:30 | 全教職員 | 校務利用から教育利用へ — 「できた！」から始める2学期 | [03_all_staff_training_pm.md](docs/03_all_staff_training_pm.md) |
 
 設計の根拠（OECD・UNESCO・査読研究・文科省ガイドライン）は [01_evidence.md](docs/01_evidence.md) に整理。
+「探究」「探究的な学び」「研究」の用語整理（文科省一次資料ベース）は [04_tankyu_definitions.md](docs/04_tankyu_definitions.md)。
 
 ## 経緯
 
