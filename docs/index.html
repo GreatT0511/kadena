@@ -74,6 +74,10 @@ li{margin:.5em 0}
 .flow .arrow{border:none;text-align:center;color:var(--sky);font-weight:800;padding:0;line-height:1.1}
 @media(max-width:640px){.duo{grid-template-columns:1fr}}
 .kw{color:var(--coral);font-weight:800}
+a.dl{display:inline-block;background:linear-gradient(135deg,#10b981,#0d9488);color:#fff;font-weight:800;
+  text-decoration:none;border-radius:999px;padding:10px 22px;margin:6px 8px 6px 0;box-shadow:0 4px 12px rgba(13,148,136,.3)}
+a.dl:active{transform:scale(.97)}
+a.dl small{font-weight:600;opacity:.9}
 /* prompt block */
 .prompt{position:relative;background:#083344;color:#e0f2fe;border-radius:14px;padding:18px 20px;margin:14px 0;
   font-family:"SF Mono",Consolas,Menlo,monospace;font-size:14.5px;white-space:pre-wrap;line-height:1.7}
@@ -210,7 +214,12 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
   <div class="card work">
     <h3><span class="badge">ワークA</span>振り返りの毎日自動分析（Workspace Studio）</h3>
     <p><strong>フォーム</strong>（帰りの会・90秒）→ <strong>スプレッドシート</strong>自動蓄積 → <strong>Workspace Studio</strong>が毎日17:00にGemini分析 → <strong>Google Chat</strong>「学びのモニタ」へ自動配信</p>
-    <p class="note">架空データ: 中2社会・歴史「江戸の政治と改革〜開国」20授業日×30人（data/dummy_reflections_shakai.csv）</p>
+    <p class="note">架空データ: 中2社会・歴史「江戸の政治と改革〜開国」20授業日×30人。匿名番号S01〜S30・理解度1〜5・わかったこと・今日の学び方・質問モヤモヤの5列。</p>
+    <p>
+      <a class="dl" href="data/dummy_reflections_shakai.csv" download>📥 架空データをダウンロード <small>(社会・20日×30人)</small></a>
+      <a class="dl" href="data/dummy_reflections.csv" download style="background:linear-gradient(135deg,#38bdf8,#0ea5c6)">📥 ミニ版 <small>(数学・5日×10人)</small></a>
+    </p>
+    <p class="note"><strong>スプレッドシートへの取り込み</strong>: ①ダウンロード → ②Googleドライブにアップロード → ③右クリック→「アプリで開く」→「Googleスプレッドシート」。<br>（または、新規スプレッドシートで「ファイル」→「インポート」→「アップロード」でもOK。文字化けしないようBOM付きUTF-8にしてあります）</p>
     <div class="prompt"><button class="copy">コピー</button>あなたは学級担任を支援する学習データアナリストです。
 参照データは本日の授業振り返りフォームの回答です（匿名番号のみ・個人名なし）。
 次の「5つの目」で分析し、Google Chatに投稿する担任向け1分ブリーフィングを作成して。
@@ -489,6 +498,12 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
       <li class="note">⚠️ 効果量の個々の数値は版により大きく改訂され（例: 1.57→1.34）、方法論への批判もある。数値の絶対視はせず「効く領域の地図」として使う</li>
     </ul>
     <p><strong>デモ</strong>: 架空データで、17:00にChatへ届く「担任向け1分ブリーフィング」の実物を見る（⑤例外が最上部・🔴🟡🟢つき）。</p>
+    <p>自分でも試したい人はこちら — 午前のコア研修と同じデータです。</p>
+    <p>
+      <a class="dl" href="data/dummy_reflections_shakai.csv" download>📥 架空データをダウンロード <small>(社会・20日×30人)</small></a>
+      <a class="dl" href="data/dummy_reflections.csv" download style="background:linear-gradient(135deg,#38bdf8,#0ea5c6)">📥 ミニ版 <small>(数学・5日×10人)</small></a>
+    </p>
+    <p class="note"><strong>スプレッドシートへの取り込み</strong>: ①ダウンロード → ②Googleドライブにアップロード → ③右クリック→「アプリで開く」→「Googleスプレッドシート」。<br>（または、新規スプレッドシートで「ファイル」→「インポート」→「アップロード」でもOK。文字化けしないようBOM付きUTF-8にしてあります）</p>
     <div class="big" style="font-size:clamp(18px,2.6vw,24px)">🗣 ディスカッション:<br>17:00にこれが届いたら、あなたは明日の授業の何を変える?</div>
     <blockquote>樹は<strong>葉（授業の一手）まで届いて、初めて教育になる</strong>。枝（Chat配信）で止まったら、それはただの通知。</blockquote>
   </div>
