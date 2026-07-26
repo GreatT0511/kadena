@@ -59,7 +59,20 @@ ol.steps>li{position:relative;padding:8px 0 8px 46px;counter-increment:st}
 ol.steps>li::before{content:counter(st);position:absolute;left:0;top:9px;width:32px;height:32px;border-radius:50%;
   background:linear-gradient(135deg,#38bdf8,#06b6d4);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
 ul{padding-left:1.4em}
+p{margin:.6em 0}
+li{margin:.5em 0}
+.card p:first-child{margin-top:0}
+.card p:last-child{margin-bottom:0}
 .note{font-size:14.5px;color:var(--sub)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.duo>div{border-radius:14px;padding:16px 18px;border:2px solid var(--line);background:#fff}
+.duo .a{border-color:#7dd3fc;background:#f0faff}
+.duo .b{border-color:#fcd34d;background:#fffbeb}
+.duo h4{margin-bottom:6px;font-size:16.5px}
+.flow{display:flex;flex-direction:column;gap:4px;margin:14px 0}
+.flow div{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:10px 16px}
+.flow .arrow{border:none;text-align:center;color:var(--sky);font-weight:800;padding:0;line-height:1.1}
+@media(max-width:640px){.duo{grid-template-columns:1fr}}
 .kw{color:var(--coral);font-weight:800}
 /* prompt block */
 .prompt{position:relative;background:#083344;color:#e0f2fe;border-radius:14px;padding:18px 20px;margin:14px 0;
@@ -104,16 +117,45 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
   <div class="big">AIが90秒で作れるものに、<br>子どもの1学期を使う意味はあるのか。</div>
 
   <div class="card">
-    <p>死んだのは探究ではありません。<strong>問いが自分のものでない探究（やらされ探究）</strong>が終わっただけです。不思議がることは、AIには代行できません。今日は「問いを子どもの手に返す」ための一日です。</p>
+    <p>死んだのは、探究ではありません。<br><strong>問いが自分のものでない探究（やらされ探究）</strong>が終わっただけです。</p><p>不思議がることは、AIには代行できません。<br>今日は「問いを子どもの手に返す」ための一日です。</p>
   </div>
 
   <h2>今日の土台① 学力の定義</h2>
   <div class="card">
     <blockquote>学力とは、教育という意図的な働きかけによって<strong>個人の内部に形成</strong>され、外部の道具や他者の即時的支援を欠いた状態でも、<strong>未知の課題に対して自力で呼び出し・組み替え・適用できる、構造化された</strong>知識・技能・思考様式の体系であり、その形成の成否について教育の側が<strong>説明責任</strong>を負いうる能力である。</blockquote>
     <ul>
-      <li><strong>内部保存性</strong> — 生徒+AIの複合系が良い成果物を出せるとき、学校が形成したものは何か。AIに任せてよい部分/任せたら空洞化する部分の境界線はここから引く</li>
-      <li><strong>転移</strong> — 学び＝転移できる<strong>構造</strong>の理解。既知問題の再生は記憶であって学力ではない</li>
-      <li><strong>標本と本体</strong> — テストの点も振り返りの自己評価も「標本」。固定指標を目標にした瞬間、学力との相関を失う</li>
+      <li><strong>内部保存性</strong><br>生徒+AIの複合系が良い成果物を出せるとき、学校が形成したものは何か。<br>AIに任せてよい部分/任せたら空洞化する部分の境界線は、ここから引く。</li>
+      <li><strong>転移</strong><br>学び＝転移できる<strong>構造</strong>の理解。<br>既知問題の再生は「記憶」であって、学力ではない。</li>
+      <li><strong>標本と本体</strong><br>テストの点も、振り返りの自己評価も「標本」。<br>固定指標を目標にした瞬間、学力との相関を失う。<span class="note">（↓すぐ下でくわしく）</span></li>
+    </ul>
+  </div>
+
+  <h2>補足: 「標本と本体」ってどういうこと?</h2>
+  <div class="card">
+    <div class="duo">
+      <div class="a"><h4>🧠 本体</h4>学力そのもの。<br>頭の中にある「転移できる構造」。<br><strong>直接は見えない。</strong></div>
+      <div class="b"><h4>📄 標本</h4>本体から<strong>1回だけ</strong>切り取った観測値。<br>ある日のテストの点・理解度1〜5・提出率。<br>その日・その問題・その気分で揺れる。</div>
+    </div>
+    <blockquote>体温計とおなじ。<br>数字は体調を知るための「窓」。<br>でも、数字そのものが健康なわけではない。</blockquote>
+
+    <h3>なぜ「目標にした瞬間、相関を失う」のか（グッドハートの法則）</h3>
+    <div class="flow">
+      <div>① 指標（点数・提出率・理解度平均）を<strong>目標</strong>にする</div>
+      <div class="arrow">▼</div>
+      <div>② 人は本体ではなく、<strong>指標のほうを直接最適化</strong>し始める<br><span class="note">テスト対策だけする/答えを写して提出する/理解していなくても「5」を付ける</span></div>
+      <div class="arrow">▼</div>
+      <div>③ <strong>指標は上がるのに、本体（転移できる構造）は増えていない</strong></div>
+      <div class="arrow">▼</div>
+      <div>④ この瞬間、指標と学力の相関が壊れる<br><span class="note">＝「測定指標が目標になると、良い指標であることをやめる」</span></div>
+    </div>
+    <p>体温計の数字を上げるためにワキを温める人はいません。<br>でも学校では、これに相当することが構造的に起きやすいのです。</p>
+    <p>実物が架空データの<strong>S15</strong>: 理解度は毎日5なのに、記述は「わかった」だけ。<br><strong>高評価の標本、薄い本体</strong> — これが「標本と本体のズレ」です。</p>
+
+    <h3>だから、今日の運用ルールは3つ</h3>
+    <ul>
+      <li>指標は<strong>診断の窓</strong>として使う。<strong>目標には決してしない</strong>（理解度平均を学級目標にしない）</li>
+      <li>窓は<strong>複数</strong>持つ — 自己評価 × 記述の中身 × 正誤 ×「今日の学び方」</li>
+      <li>最終判断は<strong>教師の目</strong>（5つの目の「⑤例外」）— 今日のデータ分析はKPI作りではない</li>
     </ul>
   </div>
 
@@ -162,7 +204,7 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
       <tr><td>④ 関係</td><td>何と何がつながっているか</td><td>AI</td></tr>
       <tr><td>⑤ 例外</td><td><strong>型から外れた子は誰か</strong></td><td><strong>教師</strong></td></tr>
     </table></div>
-    <p>⑤例外＝データの中の<strong>ズレ</strong>＝支援のサイン（急落・急伸・無言化）。AIが①〜④を30秒で終わらせる意味は、<strong>教師の時間を⑤（個の物語）に再配分する</strong>ことにある。</p>
+    <p>⑤例外＝データの中の<strong>ズレ</strong>＝支援のサイン（急落・急伸・無言化）。</p><p>AIが①〜④を30秒で終わらせる意味は、<br><strong>教師の時間を⑤（個の物語）に再配分する</strong>ことにある。</p>
   </div>
 
   <div class="card work">
@@ -208,7 +250,7 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
 
   <div class="card work">
     <h3><span class="badge">アイスブレイク</span>黒幕さがし（10分）— Gemini×AIモードの二刀流</h3>
-    <p>ドラッカー「年金資本主義」の手続きの縮小版: <strong>洞察が先、造語が後</strong>。無関係に見えた2つが実はつながっていたことの発見に、名前をつける。</p>
+    <p>ドラッカー「年金資本主義」の手続きの縮小版: <strong>洞察が先、造語が後</strong>。<br>無関係に見えた2つが「実はつながっていた」— その発見に、名前をつける。</p>
     <ol class="steps">
       <li><strong>予想</strong>（2分）: 「給食を本当に動かしているのは?」直感で3つ書く</li>
       <li><strong>Geminiで総ざらい</strong>（2分）: 下のプロンプトで裏方20個</li>
@@ -262,7 +304,7 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
 
   <div class="card">
     <h3>今日の地図 —「12の慣れ」</h3>
-    <p>校務で育つ慣れ（A）を前半で、教育に必要な慣れ（B）を後半でインストールする。<span class="kw">B6だけは校務の手癖の逆向き矯正。</span></p>
+    <p>校務で育つ慣れ（A）を前半で、教育に必要な慣れ（B）を後半でインストールする。<br><span class="kw">B6だけは、校務の手癖の逆向き矯正。</span></p>
     <div class="tablewrap"><table>
       <tr><th>#</th><th>慣れ</th><th>ワーク</th><th>アプリ</th></tr>
       <tr><td>—</td><td>ウォームアップ+前回のおさらい</td><td>0</td><td>カレンダー+Gemini @アプリ</td></tr>
@@ -357,16 +399,16 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
       <tr><td>Step3 授業内で提示</td><td>教師</td><td>その場で例文・図解生成</td><td>リハーサル</td></tr>
       <tr><td>Step4 子どもが使う</td><td>児童生徒</td><td><strong>問いを深める相棒として</strong></td><td>目的・ルール・年齢の設計</td></tr>
     </table></div>
-    <p>OECD 2026: <strong>AIで課題が完成しても、学びが成立したとは限らない</strong>。AIに答えを出させた生徒は、AIを取り上げると通常より低い成績になった。</p>
+    <p>OECD 2026: <strong>AIで課題が完成しても、学びが成立したとは限らない。</strong><br>AIに答えを出させた生徒は、AIを取り上げると通常より低い成績になった。</p>
     <div class="big" style="border-color:var(--coral);color:var(--coral)">校務で身につけた「出させる」うまさが、<br>教室では最大のリスクになる。</div>
-    <p>失敗は2種類 — 答えを隠して守った気になれば<strong>偽りの習熟</strong>、与え続ければ<strong>虚無</strong>。どちらもAIの制御ではなく「その時間で何をさせたいのか」の問題。</p>
+    <p>失敗は2種類。<br>答えを隠して守った気になれば <strong>偽りの習熟</strong>。<br>与え続ければ <strong>虚無</strong>。</p><p>どちらもAIの制御の問題ではなく、「その時間で何をさせたいのか」の問題。</p>
   </div>
 
   <h2>Part 3 ギャップの慣れをインストール <span class="time">15:10–16:10</span></h2>
 
   <div class="card work">
     <h3><span class="badge b">ワーク6</span>〈B6〉「深まる問いGem」を自分で作る — 解体新書つき</h3>
-    <p>Gemは配りません。<strong>全員がその場で作ります</strong>。自作したAIは中身を説明できる — 子どもに配るとき説明責任が果たせるのは、作った人だけ。</p>
+    <p>Gemは配りません。<strong>全員がその場で作ります</strong>。</p><p>自作したAIは、中身を説明できる。<br>子どもに配るとき説明責任が果たせるのは、作った人だけ。</p>
     <h3>解体新書 — 5つのブロックの「なぜ」</h3>
     <div class="tablewrap"><table>
       <tr><th>ブロック</th><th>中身</th><th>なぜそう書くか</th></tr>
@@ -432,7 +474,7 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
 
   <div class="card work">
     <h3><span class="badge b">ワーク10</span>〈EBPMの樹〉振り返りが、明日の授業を変える</h3>
-    <p>「EBPMの樹」を学校サイズに縮約 — BigQueryやLookerがなくても、この樹のミニチュアは今日から育てられる。</p>
+    <p>「EBPMの樹」を学校サイズに縮約。<br>BigQueryやLookerがなくても、この樹のミニチュアは<strong>今日から</strong>育てられる。</p>
     <div class="tree">
       <div class="leaf">🌿 葉｜明日の授業の一手 — 冒頭5分の手当て・再挑戦問題・朝の一声（パーソナライズ）</div>
       <div class="branch">🌤 枝｜可視化 — Workspace Studioが毎日17:00にGemini分析 → Google Chatへ配信</div>
@@ -453,7 +495,7 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
 
   <div class="card work">
     <h3><span class="badge b">ワーク9</span>〈B10〉AI利用ログの「フォームを作ってみよう！」</h3>
-    <p>ログのフォームは配りません。<strong>設問を自分で書けた人は、何を記録すべきかを理解した人</strong>。フォーム新規作成→タイトル「AI利用ログ」→設問4つ:</p>
+    <p>ログのフォームは配りません。<br><strong>設問を自分で書けた人は、何を記録すべきかを理解した人。</strong></p><p>フォーム新規作成 → タイトル「AI利用ログ」→ 設問4つ:</p>
     <ol class="steps">
       <li>どのアプリで使った?（ラジオ: Gemini/自作Gem/NotebookLM/AIモード/サイドパネル）</li>
       <li>何を入力した?（段落・要約でよい）</li>
