@@ -12,6 +12,7 @@
 設計の根拠（OECD・UNESCO・査読研究・文科省ガイドライン）は [01_evidence.md](docs/01_evidence.md) に整理。
 「探究」「探究的な学び」「研究」の用語整理（文科省一次資料ベース）は [04_tankyu_definitions.md](docs/04_tankyu_definitions.md)。
 概念工学（conceptual engineering）の知識整理は [05_conceptual_engineering.md](docs/05_conceptual_engineering.md)。
+スローAIメソッドによる新研修構想「Thought Scape / Thought Leadership」は [06_thought_scape_training.md](docs/06_thought_scape_training.md)。
 
 ## 経緯
 
