@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嘉手納町 教職員研修 2026.7.27｜生成AIと探究で拓く「新しい教育」</title>
+<style>
+:root{
+  --sky:#0ea5c6; --sky-deep:#0284a8; --sky-light:#e6f7fb; --aqua:#67e8f9;
+  --coral:#ff7a59; --sun:#ffb703; --ink:#1e3a44; --sub:#5b7885;
+  --card:#ffffff; --line:#d5edf3; --ok:#0f9d58; --ng:#e5533d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",Meiryo,sans-serif;
+  background:linear-gradient(180deg,#f4fcfe 0%,#eaf8fc 100%);color:var(--ink);
+  font-size:17px;line-height:1.75;}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px 80px}
+/* ===== header ===== */
+header{background:linear-gradient(135deg,#7dd3fc 0%,#38bdf8 35%,#06b6d4 100%);
+  color:#fff;padding:52px 20px 70px;text-align:center;position:relative;overflow:hidden}
+header .date{font-size:15px;letter-spacing:.2em;opacity:.95}
+header h1{font-size:clamp(26px,4.6vw,42px);font-weight:800;margin:10px 0 6px;text-shadow:0 2px 10px rgba(2,132,168,.35)}
+header .sub{font-size:clamp(14px,2.2vw,18px);opacity:.95}
+header .sun{position:absolute;top:24px;right:7%;width:74px;height:74px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#fff8e1,#ffd166);box-shadow:0 0 60px 22px rgba(255,222,120,.55)}
+.wave{display:block;width:100%;height:60px;margin-top:-1px}
+/* ===== tabs ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--line);display:flex;justify-content:center;gap:6px;padding:10px 8px;flex-wrap:wrap}
+nav button{border:2px solid transparent;background:transparent;color:var(--sub);font-size:16px;font-weight:700;
+  padding:9px 22px;border-radius:999px;cursor:pointer;transition:.18s}
+nav button:hover{background:var(--sky-light)}
+nav button.active{background:linear-gradient(135deg,#38bdf8,#06b6d4);color:#fff;box-shadow:0 4px 14px rgba(6,182,212,.35)}
+main section.tab{display:none}
+main section.tab.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* ===== common parts ===== */
+h2{font-size:26px;margin:46px 0 14px;padding-left:14px;border-left:8px solid var(--sky);letter-spacing:.02em}
+h2 .time{font-size:15px;color:var(--sub);font-weight:600;margin-left:10px}
+h3{font-size:20px;margin:26px 0 10px;color:var(--sky-deep)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:24px 26px;margin:16px 0;
+  box-shadow:0 6px 22px rgba(14,165,198,.07)}
+.card.work{border-top:6px solid var(--sky)}
+.card.warn{border-top:6px solid var(--coral)}
+.card.talk{border-top:6px solid var(--sun)}
+.badge{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:var(--sky);
+  border-radius:999px;padding:3px 14px;margin-right:8px;vertical-align:middle}
+.badge.b{background:var(--coral)} .badge.t{background:var(--sun);color:#5c4300}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;font-size:15.5px}
+th{background:var(--sky-light);color:var(--sky-deep);font-weight:800}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.tablewrap{overflow-x:auto}
+blockquote{background:var(--sky-light);border-left:6px solid var(--sky);border-radius:0 12px 12px 0;
+  padding:16px 20px;margin:16px 0;font-weight:600}
+.big{font-size:clamp(20px,3vw,28px);font-weight:800;text-align:center;padding:34px 18px;margin:22px 0;
+  background:linear-gradient(135deg,#e0f6fb,#f0fdff);border-radius:18px;border:2px dashed var(--aqua);color:var(--sky-deep)}
+ol.steps{padding-left:0;counter-reset:st;list-style:none}
+ol.steps>li{position:relative;padding:8px 0 8px 46px;counter-increment:st}
+ol.steps>li::before{content:counter(st);position:absolute;left:0;top:9px;width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#38bdf8,#06b6d4);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+ul{padding-left:1.4em}
+.note{font-size:14.5px;color:var(--sub)}
+.kw{color:var(--coral);font-weight:800}
+/* prompt block */
+.prompt{position:relative;background:#083344;color:#e0f2fe;border-radius:14px;padding:18px 20px;margin:14px 0;
+  font-family:"SF Mono",Consolas,Menlo,monospace;font-size:14.5px;white-space:pre-wrap;line-height:1.7}
+.prompt .copy{position:absolute;top:10px;right:10px;background:#0ea5c6;color:#fff;border:none;border-radius:8px;
+  padding:6px 14px;font-size:13px;font-weight:700;cursor:pointer}
+.prompt .copy:active{transform:scale(.96)}
+.prompt .copy.done{background:var(--ok)}
+.aikotoba{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:26px 0}
+.aikotoba div{flex:1 1 240px;background:#fff;border:2px solid var(--aqua);border-radius:14px;padding:16px;text-align:center;font-weight:800;color:var(--sky-deep)}
+footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
+.tree{display:flex;flex-direction:column;gap:6px;margin:16px 0}
+.tree div{border-radius:12px;padding:12px 18px;font-weight:700}
+.tree .leaf{background:#dcfce7;border:1.5px solid #86efac}
+.tree .branch{background:#e0f2fe;border:1.5px solid #7dd3fc}
+.tree .trunk{background:#fef3c7;border:1.5px solid #fcd34d}
+.tree .root{background:#fde8df;border:1.5px solid #ffb195}
+@media print{nav{display:none} main section.tab{display:block!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="sun"></div>
+  <div class="date">2026.7.27 MON ｜ 嘉手納町 教職員研修会</div>
+  <h1>生成AIと探究で拓く「新しい教育」</h1>
+  <div class="sub">問いを、子どもの手に返す夏。</div>
+</header>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,25 C960,50 1200,10 1440,35 L1440,60 L0,60 Z" fill="#eaf8fc"/></svg>
+
+<nav>
+  <button class="active" data-tab="home">🏝️ はじめに</button>
+  <button data-tab="am">☀️ 午前｜コア研修</button>
+  <button data-tab="pm">🌊 午後｜全教職員</button>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= HOME ================= -->
+<section class="tab active" id="home">
+
+  <div class="big">AIが90秒で作れるものに、<br>子どもの1学期を使う意味はあるのか。</div>
+
+  <div class="card">
+    <p>死んだのは探究ではありません。<strong>問いが自分のものでない探究（やらされ探究）</strong>が終わっただけです。不思議がることは、AIには代行できません。今日は「問いを子どもの手に返す」ための一日です。</p>
+  </div>
+
+  <h2>今日の土台① 学力の定義</h2>
+  <div class="card">
+    <blockquote>学力とは、教育という意図的な働きかけによって<strong>個人の内部に形成</strong>され、外部の道具や他者の即時的支援を欠いた状態でも、<strong>未知の課題に対して自力で呼び出し・組み替え・適用できる、構造化された</strong>知識・技能・思考様式の体系であり、その形成の成否について教育の側が<strong>説明責任</strong>を負いうる能力である。</blockquote>
+    <ul>
+      <li><strong>内部保存性</strong> — 生徒+AIの複合系が良い成果物を出せるとき、学校が形成したものは何か。AIに任せてよい部分/任せたら空洞化する部分の境界線はここから引く</li>
+      <li><strong>転移</strong> — 学び＝転移できる<strong>構造</strong>の理解。既知問題の再生は記憶であって学力ではない</li>
+      <li><strong>標本と本体</strong> — テストの点も振り返りの自己評価も「標本」。固定指標を目標にした瞬間、学力との相関を失う</li>
+    </ul>
+  </div>
+
+  <h2>今日の土台② 「探究」の言葉の整理</h2>
+  <div class="card">
+    <ul>
+      <li>小・中の正式用語は「<strong>探究的な学習</strong>」＝物事の本質を探って見極めようとする一連の知的営み。高校では「<strong>自己との関わりで</strong>」が加わる（発達の連続体）</li>
+      <li><strong>研究は「世界にとって新しい」ことが要件。探究は「その子にとって新しい」ことで成立する</strong></li>
+      <li>学校探究の公式設計＝「研究の型で行い、学びの深まりで評価する」（文科省・解説理数編）</li>
+    </ul>
+  </div>
+
+  <h2>今日の合言葉</h2>
+  <div class="aikotoba">
+    <div>出力は下書き、<br>決定は教師</div>
+    <div>個人情報は<br>入れない</div>
+    <div>広げるのはAI、<br>選ぶのはわたし</div>
+  </div>
+
+  <div class="card warn">
+    <p><span class="badge b">今日の唯一のルール</span><strong>AIに触る前に、自分の予想・自分の案を1行書く。</strong><br>
+    <span class="note">ズレこそがワンダーの発生装置。予想を飛ばすと虚無に落ちます。</span></p>
+  </div>
+</section>
+
+<!-- ================= AM ================= -->
+<section class="tab" id="am">
+  <h2>☀️ コア研修 <span class="time">10:00–11:30（コアメンバー）</span></h2>
+  <div class="tablewrap"><table>
+    <tr><th>時間</th><th>内容</th></tr>
+    <tr><td>10:00–10:10</td><td>定義と用語の確認（「はじめに」タブ）</td></tr>
+    <tr><td>10:10–10:45</td><td>学習データ分析 — AIに①〜④を任せ、教師は⑤に還る</td></tr>
+    <tr><td>10:45–11:20</td><td>探究 — 理念の更改: やらされ探究から Thought Scape へ</td></tr>
+    <tr><td>11:20–11:30</td><td>クロージング（2学期の宣言）</td></tr>
+  </table></div>
+
+  <h2>1. 学習データ分析 <span class="time">10:10–10:45</span></h2>
+
+  <div class="card">
+    <h3>視点の型「5つの目」</h3>
+    <div class="tablewrap"><table>
+      <tr><th>視点</th><th>問い</th><th>担当</th></tr>
+      <tr><td>① 集計</td><td>全体はどうなっているか</td><td>AI</td></tr>
+      <tr><td>② 比較</td><td>集団・項目間の差はあるか</td><td>AI</td></tr>
+      <tr><td>③ 変化</td><td>時系列でどう動いたか</td><td>AI</td></tr>
+      <tr><td>④ 関係</td><td>何と何がつながっているか</td><td>AI</td></tr>
+      <tr><td>⑤ 例外</td><td><strong>型から外れた子は誰か</strong></td><td><strong>教師</strong></td></tr>
+    </table></div>
+    <p>⑤例外＝データの中の<strong>ズレ</strong>＝支援のサイン（急落・急伸・無言化）。AIが①〜④を30秒で終わらせる意味は、<strong>教師の時間を⑤（個の物語）に再配分する</strong>ことにある。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">ワークA</span>振り返りの毎日自動分析（Workspace Studio）</h3>
+    <p><strong>フォーム</strong>（帰りの会・90秒）→ <strong>スプレッドシート</strong>自動蓄積 → <strong>Workspace Studio</strong>が毎日17:00にGemini分析 → <strong>Google Chat</strong>「学びのモニタ」へ自動配信</p>
+    <p class="note">架空データ: 中2社会・歴史「江戸の政治と改革〜開国」20授業日×30人（data/dummy_reflections_shakai.csv）</p>
+    <div class="prompt"><button class="copy">コピー</button>あなたは学級担任を支援する学習データアナリストです。
+参照データは本日の授業振り返りフォームの回答です（匿名番号のみ・個人名なし）。
+次の「5つの目」で分析し、Google Chatに投稿する担任向け1分ブリーフィングを作成して。
+
+① 集計: 理解度(1〜5)の平均と分布、回答数、記述の空欄数
+② 比較: 記述を「知識」「方略」「情意」に分類し、前日までと割合がどう違うか
+③ 変化: 理解度が前日から±2以上動いた、または記述量が半分以下になった匿名番号
+④ 関係: 理解度の自己評価と記述の中身が食い違う匿名番号
+   （高評価なのに記述が薄い/低評価なのにつまずきを具体的に言語化できている）
+⑤ 例外: 支援のサインが出ている匿名番号を最大3名（急落・無言化・不安の訴え）。
+   それぞれに明日の声かけ案を1行。
+
+形式: 400字以内。⑤を最上部に置き、緊急度を🔴🟡🟢で示す。
+最後に必ず「※AIの分析は仮説です。最終判断は先生の目で。」と付ける。</div>
+    <p><strong>デモ手順</strong>: 9/14で実行→S07が③（前日比−2）で検知されるか → 9/15で再実行→S07が⑤🔴に昇格。S09（もともと淡白な子）が誤検知されていないかも確認 — <strong>ベースラインからの変化だけがシグナル</strong>。</p>
+    <div class="prompt"><button class="copy">コピー</button>参照データは今週5日分の振り返りです。
+1. 匿名番号ごとに理解度の推移を→で表して（例: S23: 2→2→3→4→5）
+2. 上向きの子・下向きの子・横ばいの子に分け、下向きの子は「どの日・どの単元」で折れたか特定
+3. 「今日の学び方」の選択と理解度の伸びに関係が見えるか
+4. 高評価が続くのに記述が薄い子を挙げ、来週その子の学びを確かめる発問を1つずつ提案
+5. 来週の授業設計への提案を3行で</div>
+    <p class="note">週次（金曜）: 9/14–18週でS07の崩れの起点が特定され、9/24–30週ではS23（ペリー来航で火がついた子）が浮かぶ — ⑤例外は🔴だけでなく🟢もある。</p>
+  </div>
+
+  <div class="card warn">
+    <h3>⚠️ データの取り扱い</h3>
+    <ul>
+      <li>氏名・出席番号は<strong>匿名番号に置換してから</strong>投入。入れるのは「記述の内容」と「正誤」まで</li>
+      <li>Chat投稿も匿名番号のまま（実名対応表は教師の手元だけ）。配信スペースは担任+学年主任まで</li>
+      <li>分析結果は仮説。<strong>出力は下書き、決定は教師</strong></li>
+    </ul>
+  </div>
+
+  <h2>2. 探究 — 理念の更改 <span class="time">10:45–11:20</span></h2>
+
+  <div class="big">探究 ＝ Thought Scape<br><span style="font-size:.72em">自分の概念地形（思考の景色）が広がり・深まること</span><br>その先が Thought Leadership<br><span style="font-size:.72em">広がった思考に名前をつけ、行動で他者に開くこと</span></div>
+
+  <div class="card work">
+    <h3><span class="badge">アイスブレイク</span>黒幕さがし（10分）— Gemini×AIモードの二刀流</h3>
+    <p>ドラッカー「年金資本主義」の手続きの縮小版: <strong>洞察が先、造語が後</strong>。無関係に見えた2つが実はつながっていたことの発見に、名前をつける。</p>
+    <ol class="steps">
+      <li><strong>予想</strong>（2分）: 「給食を本当に動かしているのは?」直感で3つ書く</li>
+      <li><strong>Geminiで総ざらい</strong>（2分）: 下のプロンプトで裏方20個</li>
+      <li><strong>「えっ」を選ぶ</strong>（1分）: 予想とのズレの中から意外な支配項に◯</li>
+      <li><strong>AIモードで裏取り</strong>（3分）: 出典リンクを必ず1つ開く。判定 🟢裏が取れた/🔴違った/❓確認できず</li>
+      <li><strong>命名</strong>（1分）: <strong>🟢の接続にだけ命名資格</strong> — 入札給食・牛乳献立主義。「どういうこと?」と聞き返されたら成功</li>
+      <li><strong>共有</strong>（1分）: 造語＋色を板書へ。🔴を引いた人の体験談</li>
+    </ol>
+    <div class="prompt"><button class="copy">コピー</button>「給食」が毎日成り立つまでに関わっている人・モノ・お金・ルールを、
+見えにくいものほど優先して20個挙げて。
+それぞれ「もしこれが消えたら給食はどうなるか」を1行ずつ。</div>
+    <div class="prompt"><button class="copy">コピー</button>学校給食の食材は本当に入札で決まっていますか。
+だれが・どんなルールで決めているのか、出典つきで教えて。</div>
+    <blockquote>広げるのはGemini、確かめるのはAIモード（出典）、選ぶのはわたし。</blockquote>
+    <p class="note">🔴＝ハルシネーションをその場で体験（子どもに語れる実話）。❓＝調べる価値のある問いの誕生→そのまま問いみがきへ。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">道具1</span>問いみがき（12分）</h3>
+    <div class="tablewrap"><table>
+      <tr><th>みがく前</th><th>みがいた後</th></tr>
+      <tr><td>給食はなぜ残るの?</td><td>うちのクラスで、おかずの量を自分で選べる日と選べない日で、残った量はどれだけ違う?</td></tr>
+      <tr><td>地域の魅力って?</td><td>◯◯商店街を歩く人の数は、雨の日と晴れの日でどれだけ違う?</td></tr>
+    </table></div>
+    <ol class="steps">
+      <li><strong>問いの3つのチェック</strong>: つたわる?（言い直せる）/とどく?（時間と道具で答えまで行ける）/ひらく?（「へえ」で終わらない）</li>
+      <li><strong>3つの箱</strong>: かえるもの（1つ）・はかるもの（数字で）・そろえるもの（全部）。「はかるものが言えない」で止まったら前進</li>
+      <li><strong>AIつっこみ係</strong>（紙で固めてから端末）: つっこみを「たしかに!/そうかな?/あとで考える」に仕分け。<strong>使わなかったアドバイスと理由をメモ</strong></li>
+      <li><strong>1つの文にする</strong>: 「だれ（なに）が、なにを変えると、なにが、どう変わる?」</li>
+    </ol>
+    <div class="prompt"><button class="copy">コピー</button>わたしの問いと調べる計画です。
+1. 弱いところを5つ、やさしい言葉で教えて。
+2. このやり方だと「答えがわかったことにならない」場合があったら教えて。
+3. この回数や人数で足りる? 足りないなら、あとどれくらい?</div>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">道具2</span>深まる問いGem（5分・紹介）</h3>
+    <p>答えない・褒めない・3行以内。「抽象度↑↓の二枚の扉」を選ばせて深さ+1。<strong>午後の研修で全員が自作します</strong>（指示全文と解体新書は午後タブ）。</p>
+  </div>
+
+  <div class="card talk">
+    <h3>クロージング（11:20–11:30）</h3>
+    <p>1行宣言: 「2学期、<strong>どのデータ</strong>の⑤を見るか」「<strong>どの単元</strong>で問いを子どもの手に返すか」。午後は各テーブルのサポーターをお願いします。</p>
+  </div>
+</section>
+
+<!-- ================= PM ================= -->
+<section class="tab" id="pm">
+  <h2>🌊 全教職員研修会 <span class="time">13:30–16:30</span></h2>
+
+  <div class="card">
+    <h3>今日の地図 —「12の慣れ」</h3>
+    <p>校務で育つ慣れ（A）を前半で、教育に必要な慣れ（B）を後半でインストールする。<span class="kw">B6だけは校務の手癖の逆向き矯正。</span></p>
+    <div class="tablewrap"><table>
+      <tr><th>#</th><th>慣れ</th><th>ワーク</th><th>アプリ</th></tr>
+      <tr><td>—</td><td>ウォームアップ+前回のおさらい</td><td>0</td><td>カレンダー+Gemini @アプリ</td></tr>
+      <tr><td>A1</td><td>対話で育てる</td><td>1</td><td>ドキュメント+サイドパネル</td></tr>
+      <tr><td>A2</td><td>型で頼む</td><td>2</td><td>Gemini→ドキュメント</td></tr>
+      <tr><td>A3</td><td>出力を疑う</td><td>3</td><td>共有+コメント</td></tr>
+      <tr><td>A4</td><td>個人情報を入れない</td><td>4</td><td>スプレッドシート+サイドパネル</td></tr>
+      <tr><td>A5</td><td>出力は下書き、決定は自分</td><td>5</td><td>変更履歴</td></tr>
+      <tr><td>B6</td><td><strong>答えを出させない使い方</strong></td><td>6</td><td><strong>Gemを自作</strong></td></tr>
+      <tr><td>B7</td><td>目的で使い分ける</td><td>7</td><td>フォーム投票</td></tr>
+      <tr><td>B8/9</td><td>失敗に慣れる/出典まで行く</td><td>8</td><td>Gemini→NotebookLM→AIモード</td></tr>
+      <tr><td>🌳</td><td>振り返り→授業改善（EBPMの樹）</td><td>10</td><td>Workspace Studio→Chat</td></tr>
+      <tr><td>B10</td><td>記録と明示</td><td>9</td><td><strong>フォームを自作</strong></td></tr>
+      <tr><td>B11</td><td>手続きを確認する</td><td>クイズ</td><td>フォーム(テストモード)</td></tr>
+      <tr><td>B12</td><td>待つ（予想→AI→ズレ）</td><td>共通</td><td>—</td></tr>
+    </table></div>
+  </div>
+
+  <h2>Part 0 <span class="time">13:30–13:55</span></h2>
+  <div class="card work">
+    <h3><span class="badge">ワーク0</span>みんなのカレンダーをGeminiに読ませる（12分）</h3>
+    <ol class="steps">
+      <li>案内リンクから「<strong>0727研修</strong>」カレンダーを自分の画面に追加</li>
+      <li><strong>全員が予定を1件追加</strong>（例: 「◯◯先生・2学期にAIで試すこと」）→ 会場全員の画面に予定が増えていくのを確認</li>
+      <li>Geminiで <strong>@Googleカレンダー</strong> を呼び出して読ませる↓</li>
+    </ol>
+    <div class="prompt"><button class="copy">コピー</button>@Googleカレンダー 「0727研修」カレンダーの今日以降の予定を一覧にして、
+種類ごとに整理して教えて。</div>
+    <p><strong>おさらい（前回6/17）</strong>: @はカレンダーだけじゃない。</p>
+    <div class="prompt"><button class="copy">コピー</button>@Gmail 今週返信していないメールを教えて</div>
+    <div class="prompt"><button class="copy">コピー</button>@Googleドライブ 運動会の案内の資料を探して</div>
+    <blockquote>Geminiは文章生成機ではなく、<strong>アプリを読みに行くエージェント</strong>。午前の自動化（フォーム→スプシ→Chat）もこの延長線上。</blockquote>
+  </div>
+
+  <h2>Part 1 土台の5つの慣れ —「できた！」×5 <span class="time">13:55–14:45</span></h2>
+
+  <div class="card work">
+    <h3><span class="badge">ワーク1</span>〈A1 対話で育てる〉ドキュメント×サイドパネルで学級通信</h3>
+    <p>ドキュメント新規 → 1行目に自分の書き出し案（B12）→ 右上✦でサイドパネル → 依頼 → 挿入。</p>
+    <div class="prompt"><button class="copy">コピー</button>保護者向け学級通信の一段落を150字で書いて。
+2学期開始のあいさつ。夏休み明けの子どもの生活リズムを気遣う内容。
+ですます調、あたたかい語り口。</div>
+    <p><strong>追加注文を3連発</strong>（そのまま採用は禁止）:</p>
+    <div class="prompt"><button class="copy">コピー</button>もっと短く、120字くらいに。
+沖縄の9月の季節感をひとこと入れて。
+最後の一文を、保護者への具体的なお願いに変えて。</div>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">ワーク2</span>〈A2 型で頼む〉クイズを型で発注→ドキュメントにエクスポート</h3>
+    <div class="prompt"><button class="copy">コピー</button>以下に示すタスクを実行して。
+役割: 小学◯年生（中学◯年生）を教えるベテランの◯◯科教師
+ゴール: 「◯◯」の単元の3択クイズ5問
+前提条件: 誤答の選択肢は、子どもがやりがちな勘違いをもとに作る
+形式: 問題→選択肢→正解→解説の順。解説は子どもに話す口調で</div>
+    <p class="note">出力下の共有アイコン→「ドキュメントにエクスポート」。発展: フォームのテストモード化/NotebookLMに教科書を入れて「ソースだけからクイズ」＝教材接地クイズ。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">ワーク3</span>〈A3 検証の目〉共有+コメントで検品</h3>
+    <p>ワーク2のドキュメントを隣と相互共有（コメント可）→ 3観点で検品し、怪しい箇所にコメント🔴。</p>
+    <ul>
+      <li>事実の誤りはないか（<strong>数字と固有名詞から疑う</strong>）</li>
+      <li>言葉のレベルは対象学年に合っているか</li>
+      <li>誤答の選択肢は「本当にありそうな勘違い」か</li>
+    </ul>
+    <blockquote>🔴ゼロ＝検証してない、かもしれない。ハルシネーションは故障ではなく仕様。だから配る前に必ず人間が検品。</blockquote>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">ワーク4</span>〈A4 匿名化の手癖〉スプシ×サイドパネルで所見素案</h3>
+    <p>NG例: 「2年1組の比嘉◯◯さんの所見を書いて」→ どこがダメ? — <strong>名前を消すのではなく、最初から事実メモに変換して入れない。</strong></p>
+    <div class="prompt"><button class="copy">コピー</button>B列の事実メモから、通知表所見の素案を100字で2案作って。
+保護者が読んで情景が浮かぶ、具体で短い文で。
+事実メモ: 係活動（配り係）を1学期続けた/算数の「割合」でつまずいたが
+放課後に自分から質問して克服/友だちへの声かけがやさしい</div>
+    <p class="note">匿名番号×事実メモ×素案の3列構造が、そのまま2学期の運用フォーマット（実名対応表はシートに置かない）。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge">ワーク5</span>〈A5 決定は自分〉変更履歴を「署名」にする</h3>
+    <p>素案を<strong>最低1か所書き直して</strong>「確定」→ ファイル＞変更履歴で差分を確認。</p>
+    <blockquote>AIの文は平均の文。<strong>最後の1割にその子が宿る。</strong>変更履歴に残るその1割が、教師の署名。</blockquote>
+  </div>
+
+  <h2>Part 2 ブリッジ講義 <span class="time">14:55–15:10</span></h2>
+  <div class="card">
+    <div class="tablewrap"><table>
+      <tr><th>段階</th><th>使う人</th><th>例</th><th>管理</th></tr>
+      <tr><td>Step1 校務</td><td>教師</td><td>通信・翻訳・所見素案（ワーク1,4）</td><td>匿名化</td></tr>
+      <tr><td>Step2 授業準備</td><td>教師</td><td>クイズ・教材・検品（ワーク2,3）</td><td>検証</td></tr>
+      <tr><td>Step3 授業内で提示</td><td>教師</td><td>その場で例文・図解生成</td><td>リハーサル</td></tr>
+      <tr><td>Step4 子どもが使う</td><td>児童生徒</td><td><strong>問いを深める相棒として</strong></td><td>目的・ルール・年齢の設計</td></tr>
+    </table></div>
+    <p>OECD 2026: <strong>AIで課題が完成しても、学びが成立したとは限らない</strong>。AIに答えを出させた生徒は、AIを取り上げると通常より低い成績になった。</p>
+    <div class="big" style="border-color:var(--coral);color:var(--coral)">校務で身につけた「出させる」うまさが、<br>教室では最大のリスクになる。</div>
+    <p>失敗は2種類 — 答えを隠して守った気になれば<strong>偽りの習熟</strong>、与え続ければ<strong>虚無</strong>。どちらもAIの制御ではなく「その時間で何をさせたいのか」の問題。</p>
+  </div>
+
+  <h2>Part 3 ギャップの慣れをインストール <span class="time">15:10–16:10</span></h2>
+
+  <div class="card work">
+    <h3><span class="badge b">ワーク6</span>〈B6〉「深まる問いGem」を自分で作る — 解体新書つき</h3>
+    <p>Gemは配りません。<strong>全員がその場で作ります</strong>。自作したAIは中身を説明できる — 子どもに配るとき説明責任が果たせるのは、作った人だけ。</p>
+    <h3>解体新書 — 5つのブロックの「なぜ」</h3>
+    <div class="tablewrap"><table>
+      <tr><th>ブロック</th><th>中身</th><th>なぜそう書くか</th></tr>
+      <tr><td>人格と使命</td><td>問いを深めることだけをする存在</td><td>使命を1つに絞るほど壊れない</td></tr>
+      <tr><td>絶対ルール</td><td>答えない/褒めない/3行以内</td><td>答えない=虚無防止。<strong>褒めない=AIの機嫌を取り始めるのを防ぐ</strong></td></tr>
+      <tr><td>再帰ループ</td><td>鏡→前提→二枚の扉→深さ+1</td><td><strong>扉を選ぶのは常に人間</strong>=深まりの主語を本人に残す</td></tr>
+      <tr><td>塩梅の監視</td><td>返事が短くなったら具体の扉だけ</td><td>虚無への転落を自動検知</td></tr>
+      <tr><td>終了条件</td><td>問いの系譜+「捉えて離しませんか?」</td><td>旅の地図を渡して終わる</td></tr>
+    </table></div>
+    <p><strong>作り方</strong>: Gemini → Gemマネージャー → 「Gemを作成」→ 名前「深まる問いGem」→ 指示欄に下の全文を貼り付け → 保存。</p>
+    <div class="prompt"><button class="copy">コピー</button>あなたは「深まる問いGem」です。相手(先生または児童生徒)の問いを深めることだけをする存在です。
+
+# 絶対ルール
+1. 答え・解説・知識の提供をしない。求められたら「私は答えない係です。代わりに一歩深くしましょう」と返す。
+2. 評価・称賛をしない(「いい問いですね」と言わない)。
+3. 1回の返答は3行以内+問い1つ。長文禁止。
+4. 相手の言葉をなるべくそのまま使う。勝手に言い換えすぎない。
+
+# 再帰ループ(この4stepを何度も繰り返す)
+STEP1 鏡: 相手の発話を1行で鏡写しにする。「あなたは今、◯◯が不思議なんですね」
+STEP2 前提: その発話に隠れている「当たり前」を1つだけ照らす。「それは□□が前提になっていますね」
+STEP3 二枚の扉: 抽象度を1段上げた問い(↑)と1段下げた問い(↓)を1つずつ出し、
+      「↑と↓、どちらの扉を開けますか? 自分で言い直してもOKです」と聞く。
+STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(深さカウント+1。「いま深さ3です」と添える)。
+
+# 塩梅の監視(虚無防止)
+- 相手の返事が短くなる・「わからない」が増えたら、抽象度が高すぎるサイン。↑の扉を出さず、↓(具体)の扉だけを2枚出す。
+- 相手が即答し続けたらクイズ化しているサイン。↑を1段強める。
+
+# 終了条件
+- 相手が「これだ」「この問いにする」と言ったとき、または深さ5に達したとき:
+  「問いの系譜」(最初の言葉→通ってきた問い→最終の問い)を一覧で出力し、
+  最後に一言だけ聞く。「この問いは、あなたを捉えて離しませんか?」
+- 離すなら、系譜のどこにでも戻れることを伝える。</div>
+    <p><strong>二刀比較</strong>: 苦手な話題を ①Geminiに「◯◯がわかりません。教えて」 ②自作Gemに「◯◯って、そもそも何なんだろう?」— 両方に投げて3往復。<br>
+    <strong>1か所だけ改造</strong>: 語彙をひらがなに/深さ上限3に/自分の教科の例を足す → <strong>自分の教科版Gemの種</strong>。改造できる=理解した証拠。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge b">ワーク7</span>〈B7〉出させる? 出させない?（フォーム投票）</h3>
+    <p>6場面を「出させる/出させない/AIを使わない」で投票 → 円グラフを投影 → 割れた場面から議論。</p>
+    <ul>
+      <li>計算ドリルの答え合わせ/自由研究のテーマ決め/読書感想文の下書き/実験計画の穴探し/調べ学習の年表整理/苦手な子向けの類題づくり</li>
+    </ul>
+    <blockquote>判定基準は2つだけ: 「この時間のねらいは<strong>再現</strong>か、<strong>拡張</strong>か」「出力は<strong>誰の成果物</strong>になるのか」</blockquote>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge b">ワーク8</span>〈B8+B9〉郷土ネタで三段裏取り</h3>
+    <ol class="steps">
+      <li><strong>Gemini</strong>（接地なしの生成）に書かせる↓</li>
+      <li><strong>NotebookLM</strong>「嘉手納町 公式資料」ノートブックで照合 — 引用番号をクリックして原文まで行く</li>
+      <li>ソースにない主張だけ<strong>AIモード</strong>（ウェブに接地）で裏取り</li>
+    </ol>
+    <div class="prompt"><button class="copy">コピー</button>嘉手納町と周辺地域の歴史・地理・文化について、中学生向けの解説を300字で。
+年号・人口などの数字を3つ以上入れて。</div>
+    <div class="prompt"><button class="copy">コピー</button>次の解説文の主張を1文ずつ、ソースと照合して。
+ソースで確認できた=🟢、ソースと食い違う=🔴、ソースにない=❓で判定し、
+🟢には引用を付けて。</div>
+    <div class="prompt"><button class="copy">コピー</button>「（AIの主張をそのまま貼る）」は本当ですか。出典つきで教えて。</div>
+    <blockquote>Gemini=接地なし/NotebookLM=手元資料に接地/AIモード=ウェブに接地。<br>🔴が見つからない日は、<strong>🟢に根拠を付けるほうが偉い</strong> — 検証は粗探しではなく裏取り。</blockquote>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge b">ワーク10</span>〈EBPMの樹〉振り返りが、明日の授業を変える</h3>
+    <p>「EBPMの樹」を学校サイズに縮約 — BigQueryやLookerがなくても、この樹のミニチュアは今日から育てられる。</p>
+    <div class="tree">
+      <div class="leaf">🌿 葉｜明日の授業の一手 — 冒頭5分の手当て・再挑戦問題・朝の一声（パーソナライズ）</div>
+      <div class="branch">🌤 枝｜可視化 — Workspace Studioが毎日17:00にGemini分析 → Google Chatへ配信</div>
+      <div class="trunk">🪵 幹｜統合 — フォーム回答がスプレッドシートに自動蓄積</div>
+      <div class="root">🌱 根｜デジタイズ — 帰りの会90秒の振り返りフォーム</div>
+    </div>
+    <h3>なぜ「振り返り→授業改善」に張るのか（エビデンス）</h3>
+    <ul>
+      <li>ハッティ（2003）: 学力の分散の約50%は生徒自身。それを除けば<strong>教師は学校側で働きかけられる最大級の影響源（約30%）</strong></li>
+      <li>核心の一文（Hattie 2012）: <strong>「最大の効果は、教師が自らの指導の影響の学び手になるときに生じる」</strong>（Know thy impact）。形成的評価とは「コックがスープを味見する」こと</li>
+      <li>Gates財団MET: 約3,000人の教員調査で、<strong>生徒質問紙は授業観察より一貫して学力の伸びを予測</strong> — 子どもの声は授業改善の信頼できるデータ源</li>
+      <li class="note">⚠️ 効果量の個々の数値は版により大きく改訂され（例: 1.57→1.34）、方法論への批判もある。数値の絶対視はせず「効く領域の地図」として使う</li>
+    </ul>
+    <p><strong>デモ</strong>: 架空データで、17:00にChatへ届く「担任向け1分ブリーフィング」の実物を見る（⑤例外が最上部・🔴🟡🟢つき）。</p>
+    <div class="big" style="font-size:clamp(18px,2.6vw,24px)">🗣 ディスカッション:<br>17:00にこれが届いたら、あなたは明日の授業の何を変える?</div>
+    <blockquote>樹は<strong>葉（授業の一手）まで届いて、初めて教育になる</strong>。枝（Chat配信）で止まったら、それはただの通知。</blockquote>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge b">ワーク9</span>〈B10〉AI利用ログの「フォームを作ってみよう！」</h3>
+    <p>ログのフォームは配りません。<strong>設問を自分で書けた人は、何を記録すべきかを理解した人</strong>。フォーム新規作成→タイトル「AI利用ログ」→設問4つ:</p>
+    <ol class="steps">
+      <li>どのアプリで使った?（ラジオ: Gemini/自作Gem/NotebookLM/AIモード/サイドパネル）</li>
+      <li>何を入力した?（段落・要約でよい）</li>
+      <li>採用したもの（段落）</li>
+      <li><strong>捨てたものと、捨てた理由</strong>（段落・<span class="kw">必須に設定</span>）</li>
+    </ol>
+    <p class="note">④が設計の核心 — 「決めたのは自分」の証拠。学級版を作れば、子どもの探究ノートの標準装備になる。フォームの設問設計＝「何を記録させるか」の教育設計そのもの。</p>
+  </div>
+
+  <div class="card work">
+    <h3><span class="badge b">クイズ</span>〈B11〉OK? NG?（フォームのテストモード）</h3>
+    <div class="tablewrap"><table>
+      <tr><th>行為</th><th>判定</th></tr>
+      <tr><td>学級通信の誤字チェックをAIにさせた</td><td>○</td></tr>
+      <tr><td>所見の素案をAIに作らせ、自分で直して確定した</td><td>○</td></tr>
+      <tr><td>AIが挙げた参考図書を、現物未確認で学級だよりに載せた</td><td>×</td></tr>
+      <tr><td>子どもの作文を実名のまま貼り付けて添削させた</td><td>×</td></tr>
+      <tr><td>読書感想文の宿題で、子どもがAIに下書きさせた</td><td>△（規程とねらいを確認する行動が正解）</td></tr>
+      <tr><td>授業中にAIの答えが間違っていたので、子どもと一緒に検証した</td><td>◎</td></tr>
+    </table></div>
+    <blockquote>ルールはAIを禁止するためでなく、<strong>先生と子どもの成果物が疑われたときに守るため</strong>にある。</blockquote>
+  </div>
+
+  <h2>Part 4 持ち帰り設計＋クロージング <span class="time">16:15–16:30</span></h2>
+  <div class="card talk">
+    <p>フォーム「2学期の一歩」: ①鍛える慣れは<strong>#＿＿</strong>（12の慣れから選択）②試す場面とアプリ ③不安なこと1つ→コアメンバーが一言回答。</p>
+  </div>
+  <div class="big">問いは、＿＿＿＿。</div>
+  <p class="note" style="text-align:center">自分の言葉で埋めて、今日を閉じます。</p>
+</section>
+
+</main>
+
+<footer>
+  嘉手納町 教職員研修 2026.7.27 ｜ 生成AIパイロット校事業<br>
+  出力は下書き、決定は教師 ・ 個人情報は入れない ・ 広げるのはAI、選ぶのはわたし
+</footer>
+
+<script>
+document.querySelectorAll('nav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('main section.tab').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+document.querySelectorAll('.prompt .copy').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const text=btn.parentElement.innerText.replace(/^(コピー|コピーしました!)\n?/, '');
+    navigator.clipboard.writeText(text).then(()=>{
+      btn.textContent='コピーしました!';btn.classList.add('done');
+      setTimeout(()=>{btn.textContent='コピー';btn.classList.remove('done');},1600);
+    });
+  });
+});
+</script>
+</body>
+</html>
