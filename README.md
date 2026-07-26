@@ -13,6 +13,8 @@
 「探究」「探究的な学び」「研究」の用語整理（文科省一次資料ベース）は [04_tankyu_definitions.md](docs/04_tankyu_definitions.md)。
 概念工学（conceptual engineering）の知識整理は [05_conceptual_engineering.md](docs/05_conceptual_engineering.md)。
 スローAIメソッドによる新研修構想「Thought Scape / Thought Leadership」は [06_thought_scape_training.md](docs/06_thought_scape_training.md)。
+研修冒頭で確認する学力の定義（5つの限定条項）は [07_gakuryoku_definition.md](docs/07_gakuryoku_definition.md)。
+コア研修用の架空振り返りデータは [docs/data/dummy_reflections.csv](docs/data/dummy_reflections.csv)。
 
 ## 経緯
 
