@@ -83,6 +83,20 @@ a.dl{display:inline-block;background:linear-gradient(135deg,#10b981,#0d9488);col
   text-decoration:none;border-radius:999px;padding:10px 22px;margin:6px 8px 6px 0;box-shadow:0 4px 12px rgba(13,148,136,.3)}
 a.dl:active{transform:scale(.97)}
 a.dl small{font-weight:600;opacity:.9}
+a.go{display:inline-block;background:#fff;border:2px solid var(--sky);color:var(--sky-deep);font-weight:800;
+  text-decoration:none;border-radius:999px;padding:8px 18px;margin:4px 8px 4px 0;font-size:15px}
+a.go:hover{background:var(--sky-light)}
+a.go.mark{background:linear-gradient(135deg,#38bdf8,#06b6d4);color:#fff;border-color:transparent}
+.stepbox{border:2px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;background:#fff}
+.stepbox h4{color:var(--sky-deep);font-size:17px;margin-bottom:6px}
+.stepbox .min{float:right;font-size:14px;color:var(--sub);font-weight:700}
+.judge{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.judge div{flex:1 1 200px;border-radius:10px;padding:10px 14px;font-size:15px;font-weight:700}
+.judge .g{background:#dcfce7;border:1.5px solid #86efac}
+.judge .r{background:#fee2e2;border:1.5px solid #fca5a5}
+.judge .q{background:#fef3c7;border:1.5px solid #fcd34d}
+details{background:#f8fdff;border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:800;color:var(--sky-deep)}
 /* prompt block */
 .prompt{position:relative;background:#083344;color:#e0f2fe;border-radius:14px;padding:18px 20px;margin:14px 0;
   font-family:"SF Mono",Consolas,Menlo,monospace;font-size:14.5px;white-space:pre-wrap;line-height:1.7}
@@ -513,18 +527,66 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
   </div>
 
   <div class="card work">
-    <h3><span class="badge b">ワーク8</span>〈B8+B9〉郷土ネタで三段裏取り</h3>
-    <ol class="steps">
-      <li><strong>Gemini</strong>（接地なしの生成）に書かせる↓</li>
-      <li><strong>NotebookLM</strong>「嘉手納町 公式資料」ノートブックで照合 — 引用番号をクリックして原文まで行く</li>
-      <li>ソースにない主張だけ<strong>AIモード</strong>（ウェブに接地）で裏取り</li>
-    </ol>
+    <h3><span class="badge b">ワーク8</span>〈B8+B9〉郷土ネタで三段裏取り（12分）</h3>
+    <p>地元のことなら、先生方が専門家。<strong>検証できる題材でAIの限界を安全に体験します。</strong></p>
+    <p>
+      <a class="go mark" href="https://gemini.google.com/app" target="_blank" rel="noopener">① Gemini を開く</a>
+      <a class="go mark" href="https://notebooklm.google.com/" target="_blank" rel="noopener">② NotebookLM を開く</a>
+      <a class="go mark" href="https://www.google.com/search?udm=50" target="_blank" rel="noopener">③ AIモード を開く</a>
+    </p>
+    <p class="note">3つのタブを先に開いておくと、行き来がラクです。</p>
+
+    <div class="stepbox">
+      <h4><span class="min">2分</span>手順1｜Geminiに書かせる（接地なしの生成）</h4>
+      <p>下のプロンプトをコピーして、Geminiに貼るだけ。<strong>「数字を3つ以上」がしかけです</strong>（数字と固有名詞はいちばん誤りが出やすい）。</p>
+    </div>
     <div class="prompt"><button class="copy">コピー</button>嘉手納町と周辺地域の歴史・地理・文化について、中学生向けの解説を300字で。
 年号・人口などの数字を3つ以上入れて。</div>
+    <div class="stepbox">
+      <h4><span class="min">5分</span>手順2｜NotebookLMで照合（手元資料に接地）</h4>
+      <p>①Geminiの解説文を<strong>まるごとコピー</strong> → ②共有ノートブック「嘉手納町 公式資料」を開く → ③下のプロンプトと一緒に貼る。</p>
+      <p><a class="go" href="#" onclick="return false" id="nblink">📓 共有ノートブック（当日リンクを配布します）</a></p>
+    </div>
     <div class="prompt"><button class="copy">コピー</button>次の解説文の主張を1文ずつ、ソースと照合して。
 ソースで確認できた=🟢、ソースと食い違う=🔴、ソースにない=❓で判定し、
-🟢には引用を付けて。</div>
+🟢には引用を付けて。
+
+（ここにGeminiの解説文を貼る）</div>
+    <p class="kw">⚠️ 引用番号をクリックして、原文まで飛んでください。要約を読んで納得して終わるのは「裏取り」ではありません。</p>
+    <div class="judge">
+      <div class="g">🟢 ソースで確認できた<br><span class="note">→ 引用が付いているか見る</span></div>
+      <div class="r">🔴 ソースと食い違う<br><span class="note">→ 当たり! 子どもに語れる実話</span></div>
+      <div class="q">❓ ソースにない<br><span class="note">→ 手順3へ持っていく</span></div>
+    </div>
+    <div class="stepbox">
+      <h4><span class="min">3分</span>手順3｜AIモードでウェブ裏取り（ウェブに接地）</h4>
+      <p><strong>❓（ソースになかった主張）だけ</strong>を、Google検索のAIモードへ。ここでも<strong>出典リンクを1つは開く</strong>。</p>
+    </div>
     <div class="prompt"><button class="copy">コピー</button>「（AIの主張をそのまま貼る）」は本当ですか。出典つきで教えて。</div>
+    <div class="stepbox">
+      <h4><span class="min">2分</span>手順4｜全体共有</h4>
+      <p>🔴を引いた人が実例を読み上げ。「これを<strong>授業中に子どもと一緒にやる</strong>のが『先生の失敗の授業化』。前日に一度試しておけば（リハーサル）、教室では余裕をもってだまされられます」</p>
+    </div>
+
+    <details>
+      <summary>🛟 うまくいかないときは（代替の進め方）</summary>
+      <ul>
+        <li><strong>NotebookLMが開けない・共有できない</strong> → 手順2は講師画面のデモを見るだけでOK。各自は手順1→手順3（Gemini→AIモード）の二段で進める。裏取りの作法は同じです</li>
+        <li><strong>AIモードが使えない</strong> → 通常のGoogle検索でOK。<strong>検索結果を1つ開いて原文を読む</strong>ところまでやれば、ねらいは達成されます</li>
+        <li><strong>🔴が1つも見つからない</strong> → それも正常。「<strong>🟢に根拠を付けるほうが偉い</strong> — 検証は粗探しではなく裏取り」</li>
+        <li><strong>時間が押した</strong> → 手順3を省略し、手順1・2だけでも成立します（Gemini vs 手元資料の対比が本丸）</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🧑‍🏫 講師の事前準備（前日までに）</summary>
+      <ol class="steps">
+        <li><strong>NotebookLMで共有ノートブックを作る</strong>: 「嘉手納町 公式資料」を新規作成 → ソースに町公式サイトの町の概要・沿革ページ、町勢要覧・統計PDF、観光資料など5〜10点を追加 → 共有をオンにしてリンクを取得（当日はこのページの📓ボタンに差し込む or チャットで配布）</li>
+        <li><strong>自分で一度通す（最重要）</strong>: 手順1のプロンプトを実際に投げ、どこが🔴になるか下見しておく。<strong>これがワーク8で教える「リハーサル」そのもの</strong></li>
+        <li><strong>参加者環境の確認</strong>: 一般教員アカウントでNotebookLMが開けるか / AIモードが出るか。開けなければ上の代替の進め方へ</li>
+        <li><strong>タイマーを用意</strong>: AIに触る時間は12分以内で必ず区切る（無制限だと雑談機になります）</li>
+      </ol>
+    </details>
     <blockquote>Gemini=接地なし/NotebookLM=手元資料に接地/AIモード=ウェブに接地。<br>🔴が見つからない日は、<strong>🟢に根拠を付けるほうが偉い</strong> — 検証は粗探しではなく裏取り。</blockquote>
   </div>
 
