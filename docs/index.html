@@ -553,7 +553,7 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
   </div>
 
   <div class="card work">
-    <h3><span class="badge b">ワーク8</span>〈B8+B9〉郷土ネタで三段裏取り（12分）</h3>
+    <h3><span class="badge b">ワーク8</span>〈B8+B9〉郷土ネタで三段裏取り（13分）</h3>
     <p>地元のことなら、先生方が専門家。<strong>検証できる題材でAIの限界を安全に体験します。</strong></p>
     <p>
       <a class="go mark" href="https://gemini.google.com/app" target="_blank" rel="noopener">① Gemini を開く</a>
@@ -569,9 +569,23 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
     <div class="prompt"><button class="copy">コピー</button>嘉手納町と周辺地域の歴史・地理・文化について、中学生向けの解説を300字で。
 年号・人口などの数字を3つ以上入れて。</div>
     <div class="stepbox">
-      <h4><span class="min">5分</span>手順2｜NotebookLMで照合（手元資料に接地）</h4>
-      <p>①Geminiの解説文を<strong>まるごとコピー</strong> → ②共有ノートブック「嘉手納町 公式資料」を開く → ③下のプロンプトと一緒に貼る。</p>
-      <p><a class="go" href="#" onclick="return false" id="nblink">📓 共有ノートブック（当日リンクを配布します）</a></p>
+      <h4><span class="min">6分</span>手順2｜NotebookLMで「照合できる資料」を自分で集める（手元資料に接地）</h4>
+      <p>ノートブックは配りません。<strong>資料集めから自分でやります</strong> — 何を根拠にするかを選ぶのは、いつでも人間の仕事だからです。</p>
+      <p><a class="go mark" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLM を開く</a></p>
+      <ol class="steps">
+        <li><strong>「新規作成」</strong>でノートブックを1つ作る（名前は「嘉手納町の資料」など）</li>
+        <li>ソース追加の画面で <strong>「ウェブ検索」（Fast Research）</strong> を選ぶ<br>
+          <span class="note">※「ソースを追加」→「ウェブ検索/Discover sources」。キーワードを渡すと、NotebookLMが関連ページを探してソース候補を並べてくれます</span></li>
+        <li>下のキーワードを貼って検索 → 出てきた候補から<strong>公式・一次情報を優先して5件ほど選び、インポート</strong></li>
+        <li>読み込みが終わったら、<strong>ソース一覧に何が入ったかを目で確認</strong>（ここが後の判定の土台になります）</li>
+      </ol>
+    </div>
+    <div class="prompt"><button class="copy">コピー</button>嘉手納町 歴史 沿革 人口 統計 町勢要覧 公式</div>
+    <p class="note"><strong>選ぶときの目安</strong>: 🥇町の公式サイト・町勢要覧・統計資料 → 🥈県や国の公的資料 → 🥉新聞・地域メディア。個人ブログやまとめサイトは今回は外します。<br>
+    <strong>ここが今日いちばん大事な判断です</strong> — AIの答えの信頼性は、<strong>どの資料を根拠に選んだかで決まります</strong>。</p>
+    <div class="stepbox">
+      <h4><span class="min">同時進行</span>照合する</h4>
+      <p>①手順1のGeminiの解説文を<strong>まるごとコピー</strong> → ②いま作ったノートブックのチャット欄に、下のプロンプトと一緒に貼る。</p>
     </div>
     <div class="prompt"><button class="copy">コピー</button>次の解説文の主張を1文ずつ、ソースと照合して。
 ソースで確認できた=🟢、ソースと食い違う=🔴、ソースにない=❓で判定し、
@@ -597,7 +611,8 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
     <details>
       <summary>🛟 うまくいかないときは（代替の進め方）</summary>
       <ul>
-        <li><strong>NotebookLMが開けない・共有できない</strong> → 手順2は講師画面のデモを見るだけでOK。各自は手順1→手順3（Gemini→AIモード）の二段で進める。裏取りの作法は同じです</li>
+        <li><strong>NotebookLMが開けない</strong> → 手順2は講師画面のデモを見るだけでOK。各自は手順1→手順3（Gemini→AIモード）の二段で進める。裏取りの作法は同じです</li>
+        <li><strong>ウェブ検索でソースが集まらない</strong> → キーワードを短く（「嘉手納町 歴史」だけ）してやり直す。それでも出なければ、町公式サイトを検索して<strong>URLを直接貼り付け</strong>てもソースにできます</li>
         <li><strong>AIモードが使えない</strong> → 通常のGoogle検索でOK。<strong>検索結果を1つ開いて原文を読む</strong>ところまでやれば、ねらいは達成されます</li>
         <li><strong>🔴が1つも見つからない</strong> → それも正常。「<strong>🟢に根拠を付けるほうが偉い</strong> — 検証は粗探しではなく裏取り」</li>
         <li><strong>時間が押した</strong> → 手順3を省略し、手順1・2だけでも成立します（Gemini vs 手元資料の対比が本丸）</li>
@@ -607,9 +622,9 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
     <details>
       <summary>🧑‍🏫 講師の事前準備（前日までに）</summary>
       <ol class="steps">
-        <li><strong>NotebookLMで共有ノートブックを作る</strong>: 「嘉手納町 公式資料」を新規作成 → ソースに町公式サイトの町の概要・沿革ページ、町勢要覧・統計PDF、観光資料など5〜10点を追加 → 共有をオンにしてリンクを取得（当日はこのページの📓ボタンに差し込む or チャットで配布）</li>
+        <li><strong>自分でノートブックを1つ作っておく</strong>: 参加者と同じ手順（新規作成→ウェブ検索でソース収集）を前日に通し、<strong>どんな候補が出てくるかを把握</strong>しておく。当日つまずく人にすぐ助言できます（※参加者には配らず、各自に作らせるのがワークの本体）</li>
         <li><strong>自分で一度通す（最重要）</strong>: 手順1のプロンプトを実際に投げ、どこが🔴になるか下見しておく。<strong>これがワーク8で教える「リハーサル」そのもの</strong></li>
-        <li><strong>参加者環境の確認</strong>: 一般教員アカウントでNotebookLMが開けるか / AIモードが出るか。開けなければ上の代替の進め方へ</li>
+        <li><strong>参加者環境の確認</strong>: 一般教員アカウントでNotebookLMが開けるか / <strong>ウェブ検索（Fast Research）でのソース追加ができるか</strong> / AIモードが出るか。できなければ上の代替の進め方へ</li>
         <li><strong>タイマーを用意</strong>: AIに触る時間は12分以内で必ず区切る（無制限だと雑談機になります）</li>
       </ol>
     </details>
