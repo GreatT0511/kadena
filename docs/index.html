@@ -394,13 +394,35 @@ footer{text-align:center;padding:40px 16px 60px;color:var(--sub);font-size:14px}
   <h2>Part 0 <span class="time">13:30–13:55</span></h2>
   <div class="card work">
     <h3><span class="badge">ワーク0</span>みんなのカレンダーをGeminiに読ませる（12分）</h3>
-    <ol class="steps">
-      <li>案内リンクから「<strong>0727研修</strong>」カレンダーを自分の画面に追加</li>
-      <li><strong>全員が予定を1件追加</strong>（例: 「◯◯先生・2学期にAIで試すこと」）→ 会場全員の画面に予定が増えていくのを確認</li>
-      <li>Geminiで <strong>@Googleカレンダー</strong> を呼び出して読ませる↓</li>
-    </ol>
-    <div class="prompt"><button class="copy">コピー</button>@Googleカレンダー 「0727研修」カレンダーの今日以降の予定を一覧にして、
+    <p>
+      <a class="dl" href="https://calendar.google.com/calendar/u/0?cid=Y18yYzhhMDQ3MWVhYzMyN2VmMzhjMzdmMGQ0NDI4ZDJjMGNlMjU1ZTY5NGMzMzFmNWQ0Njk5N2VkYzYzYmM0NGRjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20" target="_blank" rel="noopener">📅 研修カレンダーを追加する <small>(クリック → 「追加」を押すだけ)</small></a>
+    </p>
+    <div class="stepbox">
+      <h4><span class="min">2分</span>手順1｜カレンダーを自分の画面に追加</h4>
+      <p>上のボタンをクリック → Googleカレンダーが開く → 画面の案内で<strong>「追加」</strong>を押す。<br>
+      左の「他のカレンダー」に<strong>研修カレンダー</strong>が入れば成功です。</p>
+    </div>
+    <div class="stepbox">
+      <h4><span class="min">3分</span>手順2｜全員が予定を1件入れる</h4>
+      <p>今日の日付のあたりをクリック → タイトルを入れる → <strong>保存する前に、カレンダーの選択欄を「研修カレンダー」に切り替える</strong>（ここだけ注意）→ 保存。</p>
+      <p class="note">タイトル例: 「◯◯先生・2学期にAIで試すこと」「10/12 単元◯◯でクイズ作成」など自由に。<br>
+      入れたら画面をそのままにして待ってください — <strong>会場全員の画面に、みんなの予定が増えていきます</strong>。共有と権限のしくみが目で見える瞬間です。</p>
+    </div>
+    <div class="stepbox">
+      <h4><span class="min">4分</span>手順3｜Geminiに読ませる（@エージェント）</h4>
+      <p>Geminiを開いて、下のプロンプトを貼るだけ。<strong>さっき自分たちが入れた予定を、AIが読んで整理して返します。</strong></p>
+      <p><a class="go mark" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini を開く</a></p>
+    </div>
+    <div class="prompt"><button class="copy">コピー</button>@Googleカレンダー 研修カレンダーに入っている今日以降の予定を一覧にして、
 種類ごとに整理して教えて。</div>
+    <details>
+      <summary>🛟 うまくいかないときは</summary>
+      <ul>
+        <li><strong>「追加」の画面が出ない</strong> → Googleアカウントにログインしているか確認。複数アカウントがある場合は、学校のアカウントに切り替えてからもう一度ボタンを押す</li>
+        <li><strong>予定を入れたのに、みんなの画面に出ない</strong> → 保存時のカレンダー選択が自分の個人カレンダーになっている可能性。予定を開いて、カレンダーを<strong>「研修カレンダー」</strong>に変更して保存し直す</li>
+        <li><strong>@Googleカレンダーが出てこない</strong> → Geminiの入力欄で半角の<code>@</code>を打つと候補が出ます。それでも出ない場合は連携が未設定なので、講師のデモを見てください（この後の@Gmail・@ドライブも同様）</li>
+      </ul>
+    </details>
     <p><strong>おさらい（前回6/17）</strong>: @はカレンダーだけじゃない。</p>
     <div class="prompt"><button class="copy">コピー</button>@Gmail 今週返信していないメールを教えて</div>
     <div class="prompt"><button class="copy">コピー</button>@Googleドライブ 運動会の案内の資料を探して</div>
