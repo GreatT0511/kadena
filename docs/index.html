@@ -97,6 +97,24 @@ a.go.mark{background:linear-gradient(135deg,#38bdf8,#06b6d4);color:#fff;border-c
 .judge .q{background:#fef3c7;border:1.5px solid #fcd34d}
 details{background:#f8fdff;border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0}
 summary{cursor:pointer;font-weight:800;color:var(--sky-deep)}
+/* ===== quiz ===== */
+.quiz{border:2px solid var(--line);border-radius:16px;padding:18px 20px;margin:14px 0;background:#fff}
+.quiz .qn{font-size:13px;font-weight:800;color:#fff;background:var(--sky);border-radius:999px;padding:2px 12px}
+.quiz .qt{font-weight:800;font-size:17.5px;margin:10px 0 12px;display:block}
+.quiz .opts{display:flex;gap:10px;flex-wrap:wrap}
+.quiz .opts button{flex:1 1 150px;border:2px solid var(--line);background:#fff;color:var(--ink);
+  font-size:16px;font-weight:800;padding:12px 10px;border-radius:12px;cursor:pointer;transition:.15s;font-family:inherit}
+.quiz .opts button:hover:not(:disabled){border-color:var(--sky);background:var(--sky-light)}
+.quiz .opts button:disabled{cursor:default;opacity:.55}
+.quiz .opts button.correct{background:#dcfce7;border-color:#22c55e;color:#14532d;opacity:1}
+.quiz .opts button.wrong{background:#fee2e2;border-color:#ef4444;color:#7f1d1d;opacity:1}
+.quiz .fb{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;font-size:15.5px;line-height:1.8}
+.quiz .fb.show{display:block;animation:fade .3s ease}
+.quiz .fb.ok{background:#f0fdf4;border-left:6px solid #22c55e}
+.quiz .fb.ng{background:#fff7ed;border-left:6px solid var(--coral)}
+.quiz .fb .head{font-weight:800;display:block;margin-bottom:4px}
+.score{text-align:center;font-weight:800;font-size:18px;padding:18px;border-radius:14px;
+  background:linear-gradient(135deg,#e0f6fb,#f0fdff);border:2px dashed var(--aqua);color:var(--sky-deep);margin:18px 0}
 /* prompt block */
 .prompt{position:relative;background:#083344;color:#e0f2fe;border-radius:14px;padding:18px 20px;margin:14px 0;
   font-family:"SF Mono",Consolas,Menlo,monospace;font-size:14.5px;white-space:pre-wrap;line-height:1.7}
@@ -671,15 +689,9 @@ STEP4 相手が選んだ問いを新しい現在地にして、STEP1に戻る(�
 
   <div class="card work">
     <h3><span class="badge b">クイズ</span>〈B11〉OK? NG?（フォームのテストモード）</h3>
-    <div class="tablewrap"><table>
-      <tr><th>行為</th><th>判定</th></tr>
-      <tr><td>学級通信の誤字チェックをAIにさせた</td><td>○</td></tr>
-      <tr><td>所見の素案をAIに作らせ、自分で直して確定した</td><td>○</td></tr>
-      <tr><td>AIが挙げた参考図書を、現物未確認で学級だよりに載せた</td><td>×</td></tr>
-      <tr><td>子どもの作文を実名のまま貼り付けて添削させた</td><td>×</td></tr>
-      <tr><td>読書感想文の宿題で、子どもがAIに下書きさせた</td><td>△（規程とねらいを確認する行動が正解）</td></tr>
-      <tr><td>授業中にAIの答えが間違っていたので、子どもと一緒に検証した</td><td>◎</td></tr>
-    </table></div>
+    <p>その場で答えてみましょう。<strong>正解より、解説を読むことが目的です。</strong></p>
+    <div id="quizArea"></div>
+    <div class="score" id="quizScore" style="display:none"></div>
     <blockquote>ルールはAIを禁止するためでなく、<strong>先生と子どもの成果物が疑われたときに守るため</strong>にある。</blockquote>
   </div>
 
@@ -917,6 +929,63 @@ document.querySelectorAll('.prompt .copy').forEach(btn=>{
     });
   });
 });
+
+// ===== OK/NG クイズ =====
+const QUIZ_DATA = [
+ {q:'学級通信の誤字脱字チェックを、AIにさせた', a:'○',
+  fb:'校務での文章校正は、いちばん安全な入口です。ただし<b>固有名詞・日付・数字は自分で再確認</b>を。AIは「それらしく」直してしまうことがあります。',
+  tag:'A3 出力を疑う'},
+ {q:'通知表所見の素案をAIに作らせ、自分で書き直して確定した', a:'○',
+  fb:'今日のワーク4＋5そのものです。<b>事実メモから作り、最低1か所は自分の言葉に直して確定する</b>。出力は下書き、決定は教師。変更履歴に残るその差分が、先生の署名になります。',
+  tag:'A4・A5'},
+ {q:'AIが挙げた参考図書を、現物を確認せずに学級だよりに載せた', a:'×',
+  fb:'存在しない本や論文を、もっともらしく挙げるのは生成AIの典型的な誤りです。<b>実在確認は必須</b>。これは「AIが悪い」のではなく、確認せずに配った側の責任になります。',
+  tag:'B9 出典まで行く'},
+ {q:'子どもの作文を、名前が入ったまま貼り付けて添削させた', a:'×',
+  fb:'個人情報は入れません。コツは<b>「名前を消す」ではなく「最初から入れない」</b>こと。事実メモ・匿名番号に変換してから渡す手癖をつけましょう。',
+  tag:'A4 匿名化の手癖'},
+ {q:'読書感想文の宿題で、子どもがAIに下書きを作らせた', a:'△',
+  fb:'ここでの正解は判定そのものではなく、<b>「学校のルールと、その課題のねらいを確認しにいく行動」</b>です。ねらいが表現の練習なら、下書きを任せた時点で学びは空洞化します（虚無）。コンクール応募なら規程違反になることも。',
+  tag:'B7・B11'},
+ {q:'授業中にAIの答えが間違っていたので、その場で子どもと一緒に検証した', a:'○',
+  fb:'むしろ最良の授業です。<b>AIの誤りは失敗ではなく教材</b>。前日に一度試しておけば（リハーサル）、教室で余裕をもってだまされられます。',
+  tag:'B8 子どもの前で失敗する'}
+];
+const QUIZ_CHOICES = ['○ 問題ない','△ 場合による','× やってはいけない'];
+(function buildQuiz(){
+  const area=document.getElementById('quizArea'); if(!area) return;
+  let answered=0, correct=0;
+  QUIZ_DATA.forEach((item,i)=>{
+    const box=document.createElement('div'); box.className='quiz';
+    box.innerHTML='<span class="qn">Q'+(i+1)+'</span><span class="qt">'+item.q+'</span>';
+    const opts=document.createElement('div'); opts.className='opts';
+    const fb=document.createElement('div'); fb.className='fb';
+    QUIZ_CHOICES.forEach(c=>{
+      const b=document.createElement('button'); b.textContent=c;
+      b.addEventListener('click',()=>{
+        const mark=c.charAt(0), isOK=(mark===item.a);
+        [...opts.children].forEach(x=>{
+          x.disabled=true;
+          if(x.textContent.charAt(0)===item.a) x.classList.add('correct');
+        });
+        if(!isOK) b.classList.add('wrong');
+        fb.className='fb show '+(isOK?'ok':'ng');
+        fb.innerHTML='<span class="head">'+(isOK?'そのとおり!':'惜しい! 正解は「'+item.a+'」')+'</span>'+
+                     item.fb+'<div class="note" style="margin-top:8px">関連する慣れ: '+item.tag+'</div>';
+        answered++; if(isOK) correct++;
+        if(answered===QUIZ_DATA.length){
+          const sc=document.getElementById('quizScore');
+          sc.style.display='block';
+          sc.innerHTML=correct+' / '+QUIZ_DATA.length+' 問正解<br>'+
+            '<span style="font-size:15px;font-weight:600">ルールはAIを禁止するためでなく、<br>先生と子どもの成果物が疑われたときに守るためにあります。</span>';
+          sc.scrollIntoView({behavior:'smooth',block:'center'});
+        }
+      });
+      opts.appendChild(b);
+    });
+    box.appendChild(opts); box.appendChild(fb); area.appendChild(box);
+  });
+})();
 </script>
 </body>
 </html>
