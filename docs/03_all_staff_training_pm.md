@@ -167,7 +167,7 @@ Gemは配らない。**全員がその場で作る**。自作したAIは中身�
 
 ### ワーク7〈B7 目的で使い分ける〉フォーム投票×回答グラフ（6分）
 
-**アプリ操作**: 事前作成のフォーム「出させる? 出させない?」（6場面・各3択: 出させる/出させない/AIを使わない）に全員が回答 → **回答タブの円グラフを投影** → 割れた場面から議論。
+**アプリ操作**: [投票フォーム](https://docs.google.com/forms/d/e/1FAIpQLSdo5atoWLAfLaoqDF0YLQfE_HUTsu5xCHVi3MCmf21EaUrbnQ/viewform?usp=sharing)（6場面・各3択: 出させる/出させない/AIを使わない・氏名なし）に全員が回答 → **回答タブの円グラフを投影** → 割れた場面から議論。
 
 1. 計算ドリルの答え合わせ →使わない（解答集で足りる。AIは計算を間違える）
 2. 自由研究のテーマ決め →出させない（出させたら"やらされ探究"の再生産）
@@ -291,7 +291,7 @@ Gemは配らない。**全員がその場で作る**。自作したAIは中身�
 ## 配布物・準備物チェックリスト（講師・事前）
 
 - [ ] **共有ドライブ「0727研修」**: プロンプト集ドキュメント（全コードブロック番号つき）/所見素案テンプレ.gsheet/12の慣れ表（PDF）
-- [ ] **フォーム3本**: ワーク7投票（6場面）/OK/NGテスト（テストモード+解説）/2学期の一歩 — [GASコード](gas/create_forms.gs)の`createAllForms()`を実行すれば3本まとめて自動生成できる ※AI利用ログのフォームは配らない — ワーク9で参加者が自作（設問例は進行サイトに掲示）
+- [ ] **フォーム3本**: [ワーク7投票（作成済み）](https://docs.google.com/forms/d/e/1FAIpQLSdo5atoWLAfLaoqDF0YLQfE_HUTsu5xCHVi3MCmf21EaUrbnQ/viewform?usp=sharing)/OK/NGテスト（テストモード+解説）/2学期の一歩 — [GASコード](gas/create_forms.gs)の`createAllForms()`を実行すれば3本まとめて自動生成できる ※AI利用ログのフォームは配らない — ワーク9で参加者が自作（設問例は進行サイトに掲示）
 - [ ] **NotebookLMノートブック「嘉手納町 公式資料」**（町公式サイト・町勢要覧等をソース化し、リンク共有をオン）
 - [ ] **Gem指示全文+解体新書**をプロンプト集ドキュメントに収録（Gemは配らない — ワーク6で全員が自作する）
 - [ ] **共有カレンダー**（[追加リンク](https://calendar.google.com/calendar/u/0?cid=Y18yYzhhMDQ3MWVhYzMyN2VmMzhjMzdmMGQ0NDI4ZDJjMGNlMjU1ZTY5NGMzMzFmNWQ0Njk5N2VkYzYzYmM0NGRjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)・作成済み）の権限が「予定の変更」になっているか確認。コアメンバー端末で追加→予定入力→ @Googleカレンダー の読み込みまで事前テスト
