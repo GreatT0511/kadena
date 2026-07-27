@@ -279,7 +279,7 @@ Gemは配らない。**全員がその場で作る**。自作したAIは中身�
 
 ## Part 4. 持ち帰り設計＋クロージング（16:15〜16:30 / 15分）
 
-### フォーム「2学期の一歩」（7分）
+### [フォーム「2学期の一歩」](https://docs.google.com/forms/d/1pSvczHqP01dsTPoAcljLzvZmXCI89w9El8MV4plEdhA/viewform)（7分）
 
 1. 私が2学期に鍛える慣れは **#＿＿**（12の慣れからプルダウン選択）
 2. 試す場面とアプリ: ＿＿＿＿＿（例: 10月の単元◯◯でワーク2→3をドキュメント共有で/学活で二刀比較を見せる）
@@ -298,7 +298,7 @@ Gemは配らない。**全員がその場で作る**。自作したAIは中身�
 ## 配布物・準備物チェックリスト（講師・事前）
 
 - [ ] **共有ドライブ「0727研修」**: プロンプト集ドキュメント（全コードブロック番号つき）/所見素案テンプレ.gsheet/12の慣れ表（PDF）
-- [ ] **フォーム3本**: [ワーク7投票（作成済み）](https://docs.google.com/forms/d/e/1FAIpQLSdo5atoWLAfLaoqDF0YLQfE_HUTsu5xCHVi3MCmf21EaUrbnQ/viewform?usp=sharing)/OK/NGテスト（テストモード+解説）/2学期の一歩 — [GASコード](gas/create_forms.gs)の`createAllForms()`を実行すれば3本まとめて自動生成できる ※AI利用ログのフォームは配らない — ワーク9で参加者が自作（設問例は進行サイトに掲示）
+- [ ] **フォーム3本（作成済み）**: [ワーク7投票](https://docs.google.com/forms/d/e/1FAIpQLSdo5atoWLAfLaoqDF0YLQfE_HUTsu5xCHVi3MCmf21EaUrbnQ/viewform?usp=sharing)/OK/NGテスト（テストモード+解説）/[2学期の一歩](https://docs.google.com/forms/d/1pSvczHqP01dsTPoAcljLzvZmXCI89w9El8MV4plEdhA/viewform) — OK/NGクイズはサイト上で実施するためフォーム不要。GAS版が必要なら[コード](gas/create_forms.gs)から生成可 ※AI利用ログのフォームは配らない — ワーク9で参加者が自作（設問例は進行サイトに掲示）
 - [ ] NotebookLMは**参加者が各自作成**（配布しない）。講師は前日に同じ手順（新規作成→ウェブ検索でソース収集）を一度通し、出てくる候補を把握しておく
 - [ ] **Gem指示全文+解体新書**をプロンプト集ドキュメントに収録（Gemは配らない — ワーク6で全員が自作する）
 - [ ] **共有カレンダー**（[追加リンク](https://calendar.google.com/calendar/u/0?cid=Y18yYzhhMDQ3MWVhYzMyN2VmMzhjMzdmMGQ0NDI4ZDJjMGNlMjU1ZTY5NGMzMzFmNWQ0Njk5N2VkYzYzYmM0NGRjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)・作成済み）の権限が「予定の変更」になっているか確認。コアメンバー端末で追加→予定入力→ @Googleカレンダー の読み込みまで事前テスト
